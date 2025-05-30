@@ -1,0 +1,11 @@
+# Build Stage: Preparing the application for production
+FROM python:3.9-slim AS build  
+
+# Set the working directory inside the container to /app
+WORKDIR /app  
+
+# Copy the app.py file from the host into the container
+COPY app.py app.py  
+
+# Install Flask (required for the app) and build tools (for demonstration purposes)
+RUN pip install flask && apt update && apt install -y build-essential
